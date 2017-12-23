@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="easybuy@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="easybuy">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="bbs"/>
+    <schema id="4" parent="1" name="bbss"/>
+    <schema id="5" parent="1" name="book"/>
+    <schema id="6" parent="1" name="forum"/>
+    <schema id="7" parent="1" name="information_schema"/>
+    <schema id="8" parent="1" name="library"/>
+    <schema id="9" parent="1" name="myshool"/>
+    <schema id="10" parent="1" name="mysql"/>
+    <schema id="11" parent="1" name="performance_schema"/>
+    <schema id="12" parent="1" name="tcmp063"/>
+    <schema id="13" parent="1" name="test"/>
+    <table id="14" parent="2" name="easybuy_news"/>
+    <table id="15" parent="2" name="easybuy_order"/>
+    <table id="16" parent="2" name="easybuy_order_detail"/>
+    <table id="17" parent="2" name="easybuy_ordey"/>
+    <table id="18" parent="2" name="easybuy_product"/>
+    <table id="19" parent="2" name="easybuy_product_categorg"/>
+    <table id="20" parent="2" name="easybuy_product_category"/>
+    <table id="21" parent="2" name="easybuy_user"/>
+    <table id="22" parent="2" name="easybuy_user_address"/>
+    <table id="23" parent="2" name="easybuy_user_assress"/>
+    <table id="24" parent="2" name="result"/>
+    <column id="25" parent="14" name="id">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="26" parent="14" name="title">
+      <Position>2</Position>
+      <Comment>标题</Comment>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="14" name="content">
+      <Position>3</Position>
+      <Comment>内容</Comment>
+      <DataType>varchar(1000)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="14" name="createTime">
+      <Position>4</Position>
+      <Comment>创建时间</Comment>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="29" parent="14" name="PK__EASYBUY___C63B5EE724927208">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="30" parent="14" name="UQ__EASYBUY___C12AD09D276EDEB3">
+      <ColNames>title</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="31" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="32" parent="14" name="PK__EASYBUY___C63B5EE724927208">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__EASYBUY___C63B5EE724927208</UnderlyingIndexName>
+    </key>
+    <key id="33" parent="14" name="UQ__EASYBUY___C12AD09D276EDEB3">
+      <ColNames>title</ColNames>
+      <UnderlyingIndexName>UQ__EASYBUY___C12AD09D276EDEB3</UnderlyingIndexName>
+    </key>
+    <column id="34" parent="15" name="id">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="35" parent="15" name="userId">
+      <Position>2</Position>
+      <Comment>用户主键</Comment>
+      <DataType>int(255)|0</DataType>
+    </column>
+    <column id="36" parent="15" name="loginName">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="37" parent="15" name="userAddress">
+      <Position>4</Position>
+      <Comment>用户地址</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="38" parent="15" name="createTime">
+      <Position>5</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="39" parent="15" name="cost">
+      <Position>6</Position>
+      <Comment>总消费</Comment>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="40" parent="15" name="serialNumber">
+      <Position>7</Position>
+      <Comment>订单号</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="41" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="42" parent="16" name="id">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="43" parent="16" name="orderId">
+      <Position>2</Position>
+      <Comment>订单主键</Comment>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="16" name="productId">
+      <Position>3</Position>
+      <Comment>商品主键</Comment>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="16" name="quantity">
+      <Position>4</Position>
+      <Comment>数量</Comment>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="16" name="cost">
+      <Position>5</Position>
+      <Comment>消费</Comment>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="47" parent="16" name="PK__EASYBUY___66E1BD8E2F10007B">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="48" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="49" parent="16" name="PK__EASYBUY___66E1BD8E2F10007B">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__EASYBUY___66E1BD8E2F10007B</UnderlyingIndexName>
+    </key>
+    <column id="50" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="51" parent="17" name="userId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="17" name="loginName">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="17" name="userAddress">
+      <Position>4</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="17" name="createTime">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="17" name="cost">
+      <Position>6</Position>
+      <DataType>float(10,3)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="17" name="status">
+      <Position>7</Position>
+      <Comment>1为待审核 2为审核通过 3为配货 4为买家已发货 5为已收货</Comment>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="17" name="type">
+      <Position>8</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="17" name="serialNumber">
+      <Position>9</Position>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="59" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="60" parent="18" name="id">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="61" parent="18" name="name">
+      <Position>2</Position>
+      <Comment>名称</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="18" name="description">
+      <Position>3</Position>
+      <Comment>描述</Comment>
+      <DataType>varchar(1024)|0</DataType>
+    </column>
+    <column id="63" parent="18" name="price">
+      <Position>4</Position>
+      <Comment>价格</Comment>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="18" name="stock">
+      <Position>5</Position>
+      <Comment>库存</Comment>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="18" name="categoryLevel1Id">
+      <Position>6</Position>
+      <Comment>分类1</Comment>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="66" parent="18" name="categoryLevel2Id">
+      <Position>7</Position>
+      <Comment>分类2</Comment>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="67" parent="18" name="categoryLevel3Id">
+      <Position>8</Position>
+      <Comment>分类3</Comment>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="68" parent="18" name="fileName">
+      <Position>9</Position>
+      <Comment>文件名称</Comment>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="69" parent="18" name="isDelete">
+      <Position>10</Position>
+      <Comment>是否删除(1：删除 0：未删除)</Comment>
+      <DataType>int(1)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="70" parent="18" name="PK__EASYBUY___94F6E55132E0915F">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="71" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="72" parent="18" name="PK__EASYBUY___94F6E55132E0915F">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__EASYBUY___94F6E55132E0915F</UnderlyingIndexName>
+    </key>
+    <column id="73" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="74" parent="19" name="name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="19" name="parentId">
+      <Position>3</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="19" name="type">
+      <Position>4</Position>
+      <Comment>1为一级分类，2 为二级分类，3 为三级分类</Comment>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="77" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="78" parent="20" name="id">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="79" parent="20" name="name">
+      <Position>2</Position>
+      <Comment>名称</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="80" parent="20" name="parentId">
+      <Position>3</Position>
+      <Comment>父级目录id</Comment>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="20" name="type">
+      <Position>4</Position>
+      <Comment>级别(1:一级 2：二级 3：三级)</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="82" parent="20" name="iconClass">
+      <Position>5</Position>
+      <Comment>图标</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="83" parent="20" name="PK__EASYBUY___9EC2A4E236B12243">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="84" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="85" parent="20" name="PK__EASYBUY___9EC2A4E236B12243">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__EASYBUY___9EC2A4E236B12243</UnderlyingIndexName>
+    </key>
+    <column id="86" parent="21" name="id">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="87" parent="21" name="loginName">
+      <Position>2</Position>
+      <Comment>登录名</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="88" parent="21" name="userName">
+      <Position>3</Position>
+      <Comment>用户名</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="89" parent="21" name="password">
+      <Position>4</Position>
+      <Comment>密码</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="21" name="sex">
+      <Position>5</Position>
+      <Comment>性别(1:男 0：女)</Comment>
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="91" parent="21" name="identityCode">
+      <Position>6</Position>
+      <Comment>身份证号</Comment>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="92" parent="21" name="email">
+      <Position>7</Position>
+      <Comment>邮箱</Comment>
+      <DataType>varchar(80)|0</DataType>
+    </column>
+    <column id="93" parent="21" name="mobile">
+      <Position>8</Position>
+      <Comment>手机</Comment>
+      <DataType>varchar(11)|0</DataType>
+    </column>
+    <column id="94" parent="21" name="type">
+      <Position>9</Position>
+      <Comment>类型（1：后台 0:前台）</Comment>
+      <DataType>int(2)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="95" parent="21" name="PK__EASYBUY___C96109CC3A81B327">
+      <ColNames>loginName</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="96" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="97" parent="21" name="PK__EASYBUY___C96109CC3A81B327">
+      <ColNames>loginName</ColNames>
+      <UnderlyingIndexName>PK__EASYBUY___C96109CC3A81B327</UnderlyingIndexName>
+    </key>
+    <column id="98" parent="22" name="id">
+      <Position>1</Position>
+      <Comment>主键id</Comment>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="99" parent="22" name="userId">
+      <Position>2</Position>
+      <Comment>用户主键</Comment>
+      <DataType>int(255)|0</DataType>
+    </column>
+    <column id="100" parent="22" name="address">
+      <Position>3</Position>
+      <Comment>地址</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="101" parent="22" name="createTime">
+      <Position>4</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="102" parent="22" name="isDefault">
+      <Position>5</Position>
+      <Comment>是否是默认地址（1:是 0否）</Comment>
+      <DataType>int(2)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="103" parent="22" name="remark">
+      <Position>6</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="104" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="105" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="106" parent="23" name="address">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="107" parent="23" name="createTime">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="108" parent="23" name="userId">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="109" parent="23" name="isDefault">
+      <Position>5</Position>
+      <Comment>1为是，0为否</Comment>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="110" parent="23" name="remark">
+      <Position>6</Position>
+      <DataType>varchar(18)|0</DataType>
+    </column>
+    <key id="111" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="112" parent="24" name="stuno">
+      <Position>1</Position>
+      <DataType>char(10)|0</DataType>
+    </column>
+    <column id="113" parent="24" name="subjectName">
+      <Position>2</Position>
+      <DataType>char(10)|0</DataType>
+    </column>
+    <column id="114" parent="24" name="score">
+      <Position>3</Position>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="115" parent="24" name="age">
+      <Position>4</Position>
+      <DataType>int(10)|0</DataType>
+    </column>
+  </database-model>
+</dataSource>

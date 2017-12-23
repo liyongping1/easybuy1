@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bdqn.easybuy.dao.OrdeyMapper">
+    
+    <select id="queryAll" resultType="Ordey" parameterType="integer">
+        SELECT * FROM easybuy_ordey where userId=#{uId} ORDER by createTime DESC
+    </select>
+
+    <insert id="createOrder" parameterType="integer">
+        insert into easybuy_order (userId, loginName, userAddress, createTime, cost, serialNumber)
+        SELECT o.userId,o.loginName,o.userAddress,o.createTime,o.cost,o.serialNumber FROM easybuy_ordey o
+         where o.id=#{ordeyId}
+    </insert>
+    
+    <delete id="deleteOrdey" parameterType="integer">
+        DELETE FROM easybuy_ordey where id=#{ordeyId}
+    </delete>
+
+    <delete id="deleteOrderyIds" parameterType="integer">
+        DELETE FROM easybuy_ordey where id IN
+        <foreach collection="list" item="ordeyId" open="(" separator="," close=")">
+            #{ordeyId}
+        </foreach>
+    </delete>
+</mapper>

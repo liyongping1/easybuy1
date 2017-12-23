@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bdqn.easybuy.dao.OrderMapper">
+
+    <resultMap id="orderMap" type="Order">
+        <id property="id" column="id"></id>
+        <association property="product" resultMap="proMap"></association>
+        <collection property="orderDetailList" resultMap="orderDetailMap"></collection>
+    </resultMap>
+    <resultMap id="orderDetailMap" type="OrderDetail">
+        <id property="id" column="od_id"></id>
+    </resultMap>
+
+    <resultMap id="proMap" type="Product">
+        <id property="id" column=""></id>
+    </resultMap>
+    <insert id="addOrder" parameterType="Order">
+        insert into easybuy_order VALUES (null,#{userId},#{loginName},#{userAddress},now(),#{cost},#{serialNumber})
+    </insert>
+
+    <select id="queryOrderBySerialNumber" resultMap="orderMap">
+        SELECT * FROM easybuy_order where serialNumber=#{serialNumber}
+    </select>
+
+    <select id="queryOrderByLoginName" resultMap="orderMap">
+        SELECT * FROM easybuy_order WHERE loginName=#{loginName}
+    </select>
+
+
+    <select id="queryAll" resultMap="orderMap">
+         SELECT * FROM easybuy_order
+        ORDER by createTime DESC
+    </select>
+
+    <select id="getAll" resultType="integer">
+        SELECT id FROM easybuy_order
+    </select>
+
+    <select id="queryUidAll" parameterType="integer" resultMap="orderMap">
+         SELECT * FROM easybuy_order
+         where userId=#{uId}
+        ORDER by createTime DESC
+    </select>
+
+    <select id="queryUid" resultType="integer" parameterType="integer">
+        SELECT id FROM easybuy_order where userId=#{uId}
+    </select>
+
+    <insert id="createOrderByIds" parameterType="integer">
+        insert into easybuy_ordey(userId,loginName,userAddress,createTime,cost,status,type,serialNumber)
+         select eo.userId,eo.loginName,eo.userAddress,eo.createTime,eo.cost,2,1,eo.serialNumber
+          from easybuy_order eo where eo.id IN
+          <foreach collection="list" item="orderId" open="(" separator="," close=")">
+              #{orderId}
+          </foreach>
+    </insert>
+    <delete id="deleteOrderByIds" parameterType="integer">
+          delete from easybuy_order  where id IN
+          <foreach collection="list" item="orderId" open="(" separator="," close=")">
+              #{orderId}
+          </foreach>
+    </delete>
+</mapper>
